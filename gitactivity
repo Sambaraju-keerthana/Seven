@@ -1,0 +1,189 @@
+Good — now that collaborators are added, follow this *exact execution order* for your *3-member team (TL, M1, M2)*.
+
+This covers: *clone → branch → commit → merge conflict → rebase → cleanup*.
+
+---
+
+# PART 1 — MEMBERS CLONE (M1, M2)
+
+Each member runs:
+
+bash
+git clone git@github.com:PrabhaB1210/seven-wonders.git
+cd seven-wonders
+
+
+---
+
+# PART 2 — CREATE BRANCHES
+
+### Team Lead
+
+bash
+git checkout -b wonder-tl
+
+
+### Member 1
+
+bash
+git checkout -b wonder-m1
+
+
+### Member 2
+
+bash
+git checkout -b wonder-m2
+
+
+---
+
+# PART 3 — ADD FILES + COMMIT + PUSH
+
+### Team Lead
+
+bash
+echo "Machu Picchu" > wonder-tl.txt
+git add .
+git commit -m "TL added wonder"
+git push -u origin wonder-tl
+
+
+### Member 1
+
+bash
+echo "Great Wall" > wonder-m1.txt
+git add .
+git commit -m "M1 added wonder"
+git push -u origin wonder-m1
+
+
+### Member 2
+
+bash
+echo "Taj Mahal" > wonder-m2.txt
+git add .
+git commit -m "M2 added wonder"
+git push -u origin wonder-m2
+
+
+---
+
+# PART 4 — MERGE CONFLICT PRACTICE
+
+### Team Lead edits main
+
+bash
+git checkout main
+git pull
+echo "Edited by TL" >> wonders.txt
+git add .
+git commit -m "TL edited file"
+git push
+
+
+### Members edit SAME file (important to create conflict)
+
+Member 1
+
+bash
+git checkout wonder-m1
+echo "Edited by M1" >> wonders.txt
+git add .
+git commit -m "M1 edit"
+git push
+
+
+Member 2
+
+bash
+git checkout wonder-m2
+echo "Edited by M2" >> wonders.txt
+git add .
+git commit -m "M2 edit"
+git push
+
+
+---
+
+# PART 5 — TEAM LEAD MERGES BRANCHES
+
+bash
+git checkout main
+git merge wonder-m1
+
+
+Conflict appears → open wonders.txt → fix → then:
+
+bash
+git add wonders.txt
+git commit -m "Conflict resolved"
+git push
+
+
+Repeat:
+
+bash
+git merge wonder-m2
+
+
+Resolve → commit → push
+
+---
+
+# PART 6 — REBASE (MEMBERS)
+
+Member 1
+
+bash
+git checkout wonder-m1
+git fetch origin
+git rebase origin/main
+
+
+Member 2
+
+bash
+git checkout wonder-m2
+git fetch origin
+git rebase origin/main
+
+
+---
+
+# PART 7 — CLEANUP
+
+### Team Lead deletes remote branches
+
+bash
+git push origin --delete wonder-m1
+git push origin --delete wonder-m2
+git push origin --delete wonder-tl
+
+
+### Members delete local branches
+
+bash
+git branch -d wonder-m1
+git branch -d wonder-m2
+
+
+---
+
+# Very important memory shortcut (exam)
+
+Always remember the workflow:
+
+
+Clone
+→ Branch
+→ Commit
+→ Push
+→ Merge
+→ Conflict resolve
+→ Rebase
+→ Cleanup
+
+
+---
+
+If you want, I can next give you a *simple visualization (who runs what command in which order during the lab)* — a small table that lets your whole team execute the experiment without confusion.
