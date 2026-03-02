@@ -1,0 +1,113 @@
+🐧 1️⃣ cat — Display / create / combine files
+cat file.txt
+cat file1.txt file2.txt
+cat > newfile.txt
+cat >> file.txt
+cat -n file.txt
+cat -b file.txt
+cat -s file.txt
+cat file.txt | less
+cat *.txt
+cat file.txt | grep "hello"
+cat /etc/passwd
+🔎 2️⃣ grep — Search text patterns
+grep "hello" file.txt
+grep -i "hello" file.txt
+grep -n "hello" file.txt
+grep -c "hello" file.txt
+grep -v "hello" file.txt
+grep -r "main" .
+grep -w "word" file.txt
+grep "^start" file.txt
+grep "end$" file.txt
+grep -l "pattern" *.txt
+grep -E "cat|dog" file.txt
+✏️ 3️⃣ sed — Stream editor (modify text)
+sed 's/apple/orange/' file.txt
+sed 's/apple/orange/g' file.txt
+sed -n '2p' file.txt
+sed '1d' file.txt
+sed '$d' file.txt
+sed '3,5d' file.txt
+sed 's/^/>> /' file.txt
+sed 's/$/ << /' file.txt
+sed -i 's/old/new/g' file.txt
+sed '/hello/d' file.txt
+sed -n '/pattern/p' file.txt
+📊 4️⃣ awk — Pattern scanning & processing
+awk '{print $1}' file.txt
+awk '{print $1,$3}' file.txt
+awk '/hello/ {print}' file.txt
+awk '{sum+=$1} END {print sum}' file.txt
+awk 'NR==1' file.txt
+awk '{print NR,$0}' file.txt
+awk -F',' '{print $2}' data.csv
+awk 'length($0)>10' file.txt
+awk '{print toupper($0)}' file.txt
+awk '{print NF}' file.txt
+awk '$3 > 50' marks.txt
+📂 5️⃣ ls — List directory contents
+ls
+ls -l
+ls -a
+ls -la
+ls -lh
+ls -R
+ls *.txt
+ls -t
+ls -S
+ls /home
+ls -d */
+📘 6️⃣ man — Manual/help pages
+man ls
+man grep
+man cat
+man bash
+man pwd
+man 5 passwd
+man -k copy
+man -f ls
+man printf
+man chmod
+man date
+📍 7️⃣ pwd — Print working directory
+pwd
+pwd -P
+echo $(pwd)
+cd /tmp && pwd
+mkdir test && cd test && pwd
+pwd | wc -c
+pwd > path.txt
+echo "Current path: $(pwd)"
+🔝 8️⃣ head — Show beginning of file
+head file.txt
+head -n 5 file.txt
+head -n 20 file.txt
+head -c 50 file.txt
+head *.txt
+head -q file1.txt file2.txt
+head /etc/passwd
+head file.txt | grep hello
+head -v file.txt
+head -n -5 file.txt
+🔚 9️⃣ tail — Show end of file
+tail file.txt
+tail -n 5 file.txt
+tail -f logfile.txt
+tail -c 50 file.txt
+tail -n 20 file.txt
+tail *.txt
+tail -v file.txt
+tail -f /var/log/syslog
+tail -n +5 file.txt
+tail file.txt | grep error
+✅ BONUS (Very Common Exam Commands)
+Combine commands using pipe |
+cat file.txt | grep hello
+ls -l | grep ".txt"
+ps aux | grep firefox
+history | tail
+Redirect output
+ls > files.txt
+grep hello file.txt >> result.txt
+cat file.txt 2> error.txt
