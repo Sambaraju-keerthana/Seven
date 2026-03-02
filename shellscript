@@ -1,0 +1,115 @@
+1️⃣ Write a shell script to print “Hello World”
+Code:
+#!/bin/bash
+echo "Hello World"
+Execute:
+nano hello.sh      # paste code and save
+chmod +x hello.sh  # give permission
+./hello.sh         # run
+2️⃣ Write a shell script to add two numbers
+Code:
+#!/bin/bash
+echo "Enter first number:"
+read a
+echo "Enter second number:"
+read b
+
+sum=$((a+b))
+echo "Sum = $sum"
+Execute:
+nano add.sh
+chmod +x add.sh
+./add.sh
+3️⃣ Write a shell script to check whether a number is even or odd
+Code:
+#!/bin/bash
+echo "Enter a number:"
+read num
+
+if [ $((num%2)) -eq 0 ]
+then
+    echo "Even number"
+else
+    echo "Odd number"
+fi
+4️⃣ Write a shell script to find the factorial of a number
+Code:
+#!/bin/bash
+echo "Enter a number:"
+read num
+
+fact=1
+
+for ((i=1; i<=num; i++))
+do
+    fact=$((fact*i))
+done
+
+echo "Factorial = $fact"
+5️⃣ Write a shell script to check if a number is positive, negative or zero
+Code:
+#!/bin/bash
+echo "Enter a number:"
+read num
+
+if [ $num -gt 0 ]
+then
+    echo "Positive"
+elif [ $num -lt 0 ]
+then
+    echo "Negative"
+else
+    echo "Zero"
+fi
+6️⃣ Write a shell script to print numbers from 1 to 10
+Code:
+#!/bin/bash
+
+for i in {1..10}
+do
+    echo $i
+done
+7️⃣ Write a shell script to check if a file exists
+Code:
+#!/bin/bash
+echo "Enter filename:"
+read file
+
+if [ -f "$file" ]
+then
+    echo "File exists"
+else
+    echo "File does not exist"
+fi
+8️⃣ Write a shell script to display current date and time
+Code:
+#!/bin/bash
+echo "Current Date and Time:"
+date
+9️⃣ Write a shell script to reverse a string
+Code:
+#!/bin/bash
+echo "Enter a string:"
+read str
+
+echo "$str" | rev
+🔟 Write a shell script to find the largest of three numbers
+Code:
+#!/bin/bash
+echo "Enter three numbers:"
+read a b c
+
+if [ $a -ge $b ] && [ $a -ge $c ]
+then
+    echo "Largest = $a"
+elif [ $b -ge $a ] && [ $b -ge $c ]
+then
+    echo "Largest = $b"
+else
+    echo "Largest = $c"
+fi
+🔹 General Steps to Run Any Shell Script
+nano filename.sh     # create file
+# paste code
+chmod +x filename.sh # make executable
+./filename.sh        # run
